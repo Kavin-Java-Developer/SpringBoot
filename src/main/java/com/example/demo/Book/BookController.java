@@ -53,5 +53,14 @@ for (int i=0;i<books.size();i++){
 }
 return bookData;
 }
-
+@DeleteMapping("/delete/{id}")
+    public String deeleteBook(@PathVariable Long id){
+        for (int i=0;i<books.size();i++){
+            if (Objects.equals(books.get(i).id,id)){
+                books.remove(i);
+                return "Deleted successfully";
+            }
+        }
+        return "Sorry id is not present";
+}
 }
